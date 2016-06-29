@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Ping Pong Game</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="img">
+      <img src="pingpong.svg" alt="">
+    </div>
+    <div class="score">
+      <span>Your score: </span>
+      <span id="gameScore"></span>
+    </div>
+    <div class="game">
+      <div class="btn left" onClick="play('left')">Left</div>
+      <div class="btn right" onClick="play('right')">Right</div>
+    </div>
+  </div>
+  <script src="alertify.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
