@@ -1,56 +1,39 @@
-if(!localStorage.getItem('score')) {
-  localStorage.setItem('score', 10)
+const electron = require('electron')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
 
-  document.getElementById('gameScore')
-    .innerHTML = localStorage.getItem('score')
-} else {
-  document.getElementById('gameScore')
-    .innerHTML = localStorage.getItem('score')
+let mainWindow
+
+function createWindow () {
+  mainWindow = new BrowserWindow({
+    width: 640,
+    height: 480,
+    maxWidth: 1280,
+    maxHeight: 720,
+    minWidth: 640,
+    minHeight: 480,
+		titleBarStyle: 'hidden',
+    fullscreen: false,
+    fullscreenable: false
+  })
+
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
+
+  mainWindow.on('closed', function () {
+    mainWindow = null
+  })
 }
 
-alertify.logPosition('top right')
+app.on('ready', createWindow)
 
-play = (side) => {
-  const num = Math.floor((Math.random() * 10))
-
-  switch(side) {
-    case 'right':
-      if(num > 5) {
-        won()
-      } else {
-        lose()
-      }
-      break;
-    case 'left':
-      if(num < 6) {
-        won()
-      } else {
-        lose()
-      }
-      break;
+app.on('window-all-closed', function () {
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
-}
+})
 
-won = () => {
-  console.log('won')
-  let afterScore = parseInt(localStorage.getItem('score')) + 1
-
-  localStorage.setItem('score', afterScore)
-
-  alertify.success('You won +1')
-
-  document.getElementById('gameScore')
-    .innerHTML = localStorage.getItem('score')
-}
-
-lose = () => {
-  console.log('lose')
-  let afterScore = parseInt(localStorage.getItem('score')) - 1
-
-  localStorage.setItem('score', afterScore)
-
-  alertify.error('You lose! -1')
-
-  document.getElementById('gameScore')
-    .innerHTML = localStorage.getItem('score')
-}
+app.on('activate', function () {
+  if (mainWindow === null) {
+    createWindow()
+  }
+})

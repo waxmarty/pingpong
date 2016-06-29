@@ -1,0 +1,28 @@
+{
+  "name": "pingpong",
+  "version": "0.0.2",
+  "description": "Dead simple roulette-like game",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waxmarty/pingpong.git"
+  },
+  "keywords": [
+    "Deadsimple",
+    "Ping",
+    "Pong",
+    "Game"
+  ],
+  "author": "waxmarty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waxmarty/pingpong/issues"
+  },
+  "homepage": "https://github.com/waxmarty/pingpong#readme",
+  "dependencies": {
+    "alertify.js": "^1.0.11"
+  }
+}
