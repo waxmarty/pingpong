@@ -6,7 +6,7 @@ alertify.logPosition('top right')
 
 if(!localStorage.getItem('score')) {
 	localStorage.setItem('score', 10)
-	localStorage.setItem('games', JSON.stringify({}))
+	localStorage.setItem('games', JSON.stringify([]))
 
 	document.getElementById('gameScore')
 		.innerHTML = localStorage.getItem('score')
