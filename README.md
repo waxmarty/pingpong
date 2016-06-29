@@ -8,7 +8,7 @@
 ## Preview
 
 <p align="center">
-  ![https://raw.githubusercontent.com/waxmarty/pingpong/before/pingpong.png]()
+  <img src="https://raw.githubusercontent.com/waxmarty/pingpong/before/pingpong.png" alt="">
 </p>
 
 ## Things to do
