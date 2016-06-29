@@ -6,11 +6,14 @@ alertify.logPosition('top right')
 
 if(!localStorage.getItem('score')) {
 	localStorage.setItem('score', 10)
-	localStorage.setItem('games', JSON.stringify({}))
+	localStorage.setItem('games', JSON.stringify([]))
+
+  _games = []
 
 	document.getElementById('gameScore')
 		.innerHTML = localStorage.getItem('score')
 } else {
+  _games = JSON.parse(localStorage.getItem('games'))
 	document.getElementById('gameScore')
 		.innerHTML = localStorage.getItem('score')
 }
@@ -42,7 +45,7 @@ won = (side) => {
 
 	localStorage.setItem('score', afterScore)
 
-	pushGame(side, 'won')
+	pushGame('won')
 
 	alertify.success('You won +1')
 
@@ -56,7 +59,7 @@ lose = (side) => {
 
 	localStorage.setItem('score', afterScore)
 
-	pushGame(side, 'lose')
+	pushGame('lose')
 
 	alertify.error('You lose! -1')
 
@@ -64,9 +67,12 @@ lose = (side) => {
 		.innerHTML = localStorage.getItem('score')
 }
 
-pushGame = (side, result) => {
+pushGame = (result) => {
 	_games.push({
-		side,
 		result
 	})
+
+  localStorage.setItem('games', JSON.stringify(_games))
+
+  callAchievement()
 }
