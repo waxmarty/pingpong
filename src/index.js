@@ -21,7 +21,7 @@ play = (side) => {
   switch(side) {
     case 'right':
       if(num > 5) {
-        won()
+        won(side)
       } else {
         lose()
       }
@@ -36,11 +36,13 @@ play = (side) => {
   }
 }
 
-won = () => {
+won = (side) => {
   console.log('won')
   let afterScore = parseInt(localStorage.getItem('score')) + 7
 
   localStorage.setItem('score', afterScore)
+
+	pushGame(side, 'won')
 
   alertify.success('You won +1')
 
@@ -48,11 +50,13 @@ won = () => {
     .innerHTML = localStorage.getItem('score')
 }
 
-lose = () => {
+lose = (side) => {
   console.log('lose')
   let afterScore = parseInt(localStorage.getItem('score')) - 5
 
   localStorage.setItem('score', afterScore)
+
+	pushGame(side, 'lose')
 
   alertify.error('You lose! -1')
 
