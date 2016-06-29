@@ -8,9 +8,12 @@ if(!localStorage.getItem('score')) {
 	localStorage.setItem('score', 10)
 	localStorage.setItem('games', JSON.stringify([]))
 
+  _games = []
+
 	document.getElementById('gameScore')
 		.innerHTML = localStorage.getItem('score')
 } else {
+  _games = JSON.parse(localStorage.getItem('games'))
 	document.getElementById('gameScore')
 		.innerHTML = localStorage.getItem('score')
 }
@@ -69,4 +72,6 @@ pushGame = (side, result) => {
 		side,
 		result
 	})
+
+  callAchievement()
 }
