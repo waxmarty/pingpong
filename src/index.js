@@ -45,7 +45,7 @@ won = (side) => {
 
 	localStorage.setItem('score', afterScore)
 
-	pushGame(side, 'won')
+	pushGame('won')
 
 	alertify.success('You won +1')
 
@@ -59,7 +59,7 @@ lose = (side) => {
 
 	localStorage.setItem('score', afterScore)
 
-	pushGame(side, 'lose')
+	pushGame('lose')
 
 	alertify.error('You lose! -1')
 
@@ -67,11 +67,12 @@ lose = (side) => {
 		.innerHTML = localStorage.getItem('score')
 }
 
-pushGame = (side, result) => {
+pushGame = (result) => {
 	_games.push({
-		side,
 		result
 	})
+
+  localStorage.setItem('games', JSON.stringify(_games))
 
   callAchievement()
 }
