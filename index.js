@@ -1,5 +1,5 @@
 if(!localStorage.getItem('score')) {
-  localStorage.setItem('score', 0)
+  localStorage.setItem('score', 10)
 
   document.getElementById('gameScore')
     .innerHTML = localStorage.getItem('score')
@@ -10,7 +10,7 @@ if(!localStorage.getItem('score')) {
 
 alertify.logPosition('top right')
 
-function play(side) {
+play = (side) => {
   const num = Math.floor((Math.random() * 10))
 
   switch(side) {
@@ -31,7 +31,7 @@ function play(side) {
   }
 }
 
-function won() {
+won = () => {
   console.log('won')
   let afterScore = parseInt(localStorage.getItem('score')) + 1
 
@@ -43,7 +43,7 @@ function won() {
     .innerHTML = localStorage.getItem('score')
 }
 
-function lose() {
+lose = () => {
   console.log('lose')
   let afterScore = parseInt(localStorage.getItem('score')) - 1
 
