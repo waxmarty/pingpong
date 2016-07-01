@@ -13,8 +13,7 @@ function createWindow () {
     minWidth: 640,
     minHeight: 480,
 		titleBarStyle: 'hidden',
-    fullscreen: false,
-    fullscreenable: false
+    fullscreen: false
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
